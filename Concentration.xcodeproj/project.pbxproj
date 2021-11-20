@@ -14,6 +14,7 @@
 		E426BE621FB9BAC900773E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E426BE601FB9BAC900773E4A /* LaunchScreen.storyboard */; };
 		FA04137927302E5B00CC4E03 /* Concentration .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04137827302E5B00CC4E03 /* Concentration .swift */; };
 		FA04137C27302EC500CC4E03 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04137B27302EC500CC4E03 /* Card.swift */; };
+		FACCE3FD274953E800EDC0E3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FACCE3FC274953E800EDC0E3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E426BE631FB9BAC900773E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA04137827302E5B00CC4E03 /* Concentration .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Concentration .swift"; sourceTree = "<group>"; };
 		FA04137B27302EC500CC4E03 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		FACCE3FC274953E800EDC0E3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		E426BE4B1FB9BAC900773E4A = {
 			isa = PBXGroup;
 			children = (
+				FACCE3FC274953E800EDC0E3 /* .gitignore */,
 				E426BE561FB9BAC900773E4A /* Concentration */,
 				E426BE551FB9BAC900773E4A /* Products */,
 			);
@@ -138,6 +141,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FACCE3FD274953E800EDC0E3 /* .gitignore in Resources */,
 				E426BE621FB9BAC900773E4A /* LaunchScreen.storyboard in Resources */,
 				E426BE5F1FB9BAC900773E4A /* Assets.xcassets in Resources */,
 				E426BE5D1FB9BAC900773E4A /* Main.storyboard in Resources */,
