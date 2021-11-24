@@ -9,10 +9,10 @@
 import Foundation
 
 class Concentration {
-    var cards = [Card]()
+    private(set) var cards = [Card]()
     
     
-    var indexOfOneAndOnlyFaceUpCard: Int? {
+    private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             var foundIndex: Int?
             for index in cards.indices {
@@ -46,6 +46,12 @@ class Concentration {
             }
         }
     }
+    
+    func reloadCard(at index:Int)  {
+        cards[index].isFaceUp = false
+        cards[index].isMatched = false
+    }
+    
     
     init(numberOfPairs: Int){
         for _ in 1...numberOfPairs {

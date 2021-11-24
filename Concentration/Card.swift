@@ -13,8 +13,8 @@ struct Card {
     var isFaceUp = false
     var identifier: Int
     
-    static var identifierFactory = 0
-    static func getUiniqueIdentifier() -> Int {
+    private static var identifierFactory = 0
+    private static func getUiniqueIdentifier() -> Int {
         identifierFactory += 1
         return identifierFactory
     }
