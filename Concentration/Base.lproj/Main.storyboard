@@ -480,7 +480,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="ScoreCountLabel" destination="2dr-ru-7in" id="01x-ky-gO4"/>
                         <outlet property="flipCountLabel" destination="uxL-q4-l8J" id="LRD-Hw-e6k"/>
+                        <outlet property="themeNameLabel" destination="v4r-yH-fEV" id="WHl-nw-PdH"/>
                         <outletCollection property="cardButtons" destination="83w-RN-w6e" collectionClass="NSMutableArray" id="4OM-1v-Hq5"/>
                         <outletCollection property="cardButtons" destination="jLB-oq-pfC" collectionClass="NSMutableArray" id="BlV-lL-biI"/>
                         <outletCollection property="cardButtons" destination="jlS-qJ-Oqb" collectionClass="NSMutableArray" id="7Lp-M9-aqF"/>

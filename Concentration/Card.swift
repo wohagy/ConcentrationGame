@@ -11,6 +11,7 @@ import Foundation
 struct Card {
     var isMatched = false
     var isFaceUp = false
+    var isKnown = false
     var identifier: Int
     
     private static var identifierFactory = 0
