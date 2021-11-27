@@ -481,6 +481,7 @@
                     </view>
                     <connections>
                         <outlet property="ScoreCountLabel" destination="2dr-ru-7in" id="01x-ky-gO4"/>
+                        <outlet property="cardUpdaterOutlet" destination="08V-7d-4uo" id="YrQ-RS-Un1"/>
                         <outlet property="flipCountLabel" destination="uxL-q4-l8J" id="LRD-Hw-e6k"/>
                         <outlet property="themeNameLabel" destination="v4r-yH-fEV" id="WHl-nw-PdH"/>
                         <outletCollection property="cardButtons" destination="83w-RN-w6e" collectionClass="NSMutableArray" id="4OM-1v-Hq5"/>

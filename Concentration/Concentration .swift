@@ -18,6 +18,7 @@ class Concentration {
     private var bonusForMath = 2
     private var bonusForMiss = -1
     
+    private var clickDate: Date?
     
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
@@ -48,19 +49,40 @@ class Concentration {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
                     cycleCount += 1
-                    score += bonusForMath
+                    score += bonusForMath * missBonusMultiplierCounter(for: clickDate)
                 } else if cards[matchIndex].isKnown, cards[index].isKnown {
-                    score += bonusForMiss
+                    score += bonusForMiss * missBonusMultiplierCounter(for: clickDate)
                 }
                 cards[index].isFaceUp = true
-              
+                
                 
             } else {
-            indexOfOneAndOnlyFaceUpCard = index
+                indexOfOneAndOnlyFaceUpCard = index
             }
             cards[index].isKnown = true
-            print(cycleCount)
+            clickDate = Date()
+  
+           
+     
             
+        }
+    }
+    
+    func missBonusMultiplierCounter(for date: Date?) -> Int   {
+        if let interval = date?.sinceNow{
+            switch interval {
+            case 0..<5:
+                return 3
+            case 5..<10:
+                return 2
+            case 10..<100:
+                return 1
+            default:
+                return 1
+            }
+            
+        } else {
+            return 1
         }
     }
     
@@ -69,6 +91,7 @@ class Concentration {
         cards[index].isMatched = false
         cards[index].isKnown = false
         flipsCount = 0
+        score = 0
     }
     
     
@@ -78,5 +101,11 @@ class Concentration {
             cards += [card, card]
         }
         cards.shuffle()
+    }
+}
+
+extension Date {
+    var sinceNow: Int {
+        return -Int(self.timeIntervalSinceNow)
     }
 }

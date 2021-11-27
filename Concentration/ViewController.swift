@@ -15,6 +15,17 @@ class ViewController: UIViewController {
             return  (cardButtons.count+1)/2   
     }
     
+    var cycle: Int = 0 {
+        willSet{
+            
+        }
+        didSet {
+            if oldValue > game.cycleCount {
+                updateModelFromView()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         indexTheme = concentrationsThemes.count.arc4random
@@ -37,6 +48,7 @@ class ViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var cardUpdaterOutlet: UIButton!
     @IBAction private func cardUpdater(_ sender: UIButton) {
         for index in cardButtons.indices {
             game.reloadCard(at: index)
@@ -44,6 +56,7 @@ class ViewController: UIViewController {
         }
         indexTheme = concentrationsThemes.count.arc4random
         updateModelFromView()
+        
     }
     
     
@@ -73,6 +86,9 @@ class ViewController: UIViewController {
             ScoreCountLabel.textColor = concentrationsThemes[indexTheme].cardColor
             themeNameLabel.textColor = concentrationsThemes[indexTheme].cardColor
             flipCountLabel.textColor = concentrationsThemes[indexTheme].cardColor
+            cardUpdaterOutlet.backgroundColor = concentrationsThemes[indexTheme].cardColor
+            cardUpdaterOutlet.setTitleColor(concentrationsThemes[indexTheme].viewColor, for: .normal) 
+            
             
         }
     }
