@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Concentration {
+struct Concentration {
     private(set) var cards = [Card]()
     
     private(set) var flipsCount = 0
@@ -41,7 +41,7 @@ class Concentration {
         }
     }
     
-    func chooseCard(at index: Int) {
+    mutating func chooseCard(at index: Int) {
         if !cards[index].isMatched {
             flipsCount += 1
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
@@ -86,7 +86,7 @@ class Concentration {
         }
     }
     
-    func reloadCard(at index:Int)  {
+    mutating func reloadCard(at index:Int)  {
         cards[index].isFaceUp = false
         cards[index].isMatched = false
         cards[index].isKnown = false
