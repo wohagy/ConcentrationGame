@@ -15,16 +15,16 @@ class ViewController: UIViewController {
             return  (cardButtons.count+1)/2   
     }
     
-    var cycle: Int = 0 {
-        willSet{
-            
-        }
-        didSet {
-            if oldValue > game.cycleCount {
-                updateModelFromView()
-            }
-        }
-    }
+//    var cycle: Int = 0 {
+//        willSet{
+//
+//        }
+//        didSet {
+//            if oldValue > game.cycleCount {
+//                updateModelFromView()
+//            }
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +59,15 @@ class ViewController: UIViewController {
         
     }
     
+    private func updateFlipCountLabel(with count: Int) -> NSAttributedString  {
+        let atributes : [NSAttributedString.Key:Any] = [
+            .strokeColor : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+            .strokeWidth : 5.0
+            
+        ]
+        return NSAttributedString(string: "Flips: \(count)", attributes: atributes)
+    }
+    
     
     private func updateModelFromView(){
         for index in cardButtons.indices {
@@ -72,7 +81,7 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : concentrationsThemes[indexTheme].cardColor
             }
         }
-        flipCountLabel.text = "Flips: \(game.flipsCount)"
+        flipCountLabel.attributedText = updateFlipCountLabel(with: game.score)
         ScoreCountLabel.text = "Score: \(game.score)"
         
     }
@@ -99,9 +108,9 @@ class ViewController: UIViewController {
     private func emoji(for card:Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
             print(emojiChoices.count)
+            
 
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
-            
             emoji[card.identifier] = String(emojiChoices.remove(at: randomStringIndex))
         }
         return emoji[card.identifier] ?? "?"
