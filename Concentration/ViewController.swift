@@ -93,30 +93,34 @@ class ViewController: UIViewController {
         }
     }
     private var emoji = [Int:String]()
-    private var emojiChoices: [String] = []
+    private var emojiChoices: String = ""
     
     
     private func emoji(for card:Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            emoji[card.identifier] = emojiChoices.remove(at: emojiChoices.count.arc4random)
+            print(emojiChoices.count)
+
+            let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
+            
+            emoji[card.identifier] = String(emojiChoices.remove(at: randomStringIndex))
         }
         return emoji[card.identifier] ?? "?"
     }
     
     private struct Theme {
         var name: String
-        var emojis: [String]
+        var emojis: String
         var viewColor: UIColor
         var cardColor: UIColor
         }
     
     private var concentrationsThemes: [Theme] = [
         Theme(name: "Halloween",
-              emojis: ["🎃", "👻", "👺", "😈", "👹", "💀", "☠️","🧟‍♀️"],
+              emojis: "🎃👻👺😈👹💀☠️🧟‍♀️",
               viewColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),
               cardColor: #colorLiteral(red: 0.9603708386, green: 0.7042585015, blue: 0.1982794106, alpha: 1)),
         Theme(name: "Fruits",
-              emojis: ["🌹", "🌺", "🌸", "🌻", "🌼", "💐", "🥀","🌷"],
+              emojis: "🌹🌺🌸🌻🌼💐🥀🌷",
               viewColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),
               cardColor: #colorLiteral(red: 0.9469744563, green: 0.9561795592, blue: 0.2197425961, alpha: 1))
     ]
