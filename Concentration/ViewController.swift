@@ -41,6 +41,7 @@ class ViewController: UIViewController {
     @IBAction private func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.firstIndex(of: sender) {
             game.chooseCard(at: cardNumber)
+            timerUpdate()
             updateModelFromView()
         } else {
             print("choosen card was not in cardButtons")
@@ -54,9 +55,30 @@ class ViewController: UIViewController {
             game.reloadCard(at: index)
             emoji[index] = nil
         }
+        timer.invalidate()
         indexTheme = concentrationsThemes.count.arc4random
         updateModelFromView()
         
+    }
+    
+    var timer = Timer()
+    var bestTimeResult: Int?
+    
+    private func timerUpdate() {
+        if game.flipsCount == 1 {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {timer in
+                self.flipCountLabel.text = String(self.game.gameTimer()) + " sec"
+            }
+        } else if game.cycleCount == numberOfPairs {
+            timer.invalidate()
+            if let time = bestTimeResult {
+                if time > game.gameTimer() {
+                    bestTimeResult = time
+                }
+            } else {
+                bestTimeResult = game.gameTimer()
+            }
+        }
     }
     
     private func updateFlipCountLabel(with count: Int) -> NSAttributedString  {
@@ -77,12 +99,14 @@ class ViewController: UIViewController {
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
                  button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
-                button.setTitle("", for: UIControl.State.normal)
+                button.setTitle(emoji(for: card), for: UIControl.State.normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : concentrationsThemes[indexTheme].cardColor
             }
         }
-        flipCountLabel.attributedText = updateFlipCountLabel(with: game.score)
+//        flipCountLabel.attributedText = updateFlipCountLabel(with: game.flipsCount)
+        flipCountLabel.text = "0 sec"
         ScoreCountLabel.text = "Score: \(game.score)"
+        
         
     }
     
@@ -107,9 +131,6 @@ class ViewController: UIViewController {
     
     private func emoji(for card:Card) -> String {
         if emoji[card.identifier] == nil, emojiChoices.count > 0 {
-            print(emojiChoices.count)
-            
-
             let randomStringIndex = emojiChoices.index(emojiChoices.startIndex, offsetBy: emojiChoices.count.arc4random)
             emoji[card.identifier] = String(emojiChoices.remove(at: randomStringIndex))
         }
