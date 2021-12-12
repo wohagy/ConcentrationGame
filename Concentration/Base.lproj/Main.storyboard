@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -64,7 +63,7 @@
                                     <action selector="cardUpdater:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OIm-hW-7WO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxL-q4-l8J">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 sec" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxL-q4-l8J">
                                 <rect key="frame" x="303" y="692" width="106" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="CsR-4w-flw"/>
@@ -406,9 +405,9 @@
                                 <exclude reference="cKc-zq-dtW"/>
                                 <exclude reference="qfp-D6-9ec"/>
                                 <exclude reference="sXa-hX-qo1"/>
-                                <exclude reference="giq-yT-BX2"/>
-                                <exclude reference="j25-gX-HOl"/>
-                                <exclude reference="plt-rD-7Pa"/>
+                                <exclude reference="FSi-Fr-bSE"/>
+                                <exclude reference="Z60-Qi-hE6"/>
+                                <exclude reference="kax-Jm-VrA"/>
                                 <exclude reference="7zo-XY-pIR"/>
                                 <exclude reference="BA2-M2-zy6"/>
                                 <exclude reference="Pus-3f-bP4"/>
@@ -422,9 +421,9 @@
                                 <exclude reference="b4A-16-erW"/>
                                 <exclude reference="lSp-9t-Q9f"/>
                                 <exclude reference="wso-MF-HDD"/>
-                                <exclude reference="FSi-Fr-bSE"/>
-                                <exclude reference="Z60-Qi-hE6"/>
-                                <exclude reference="kax-Jm-VrA"/>
+                                <exclude reference="giq-yT-BX2"/>
+                                <exclude reference="j25-gX-HOl"/>
+                                <exclude reference="plt-rD-7Pa"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
@@ -436,13 +435,13 @@
                                 <include reference="8dk-Wu-ov7"/>
                                 <exclude reference="9Go-5T-GWB"/>
                                 <include reference="sXa-hX-qo1"/>
-                                <include reference="j25-gX-HOl"/>
                                 <include reference="7zo-XY-pIR"/>
                                 <include reference="BA2-M2-zy6"/>
                                 <include reference="Pus-3f-bP4"/>
                                 <exclude reference="mJ7-0J-WwE"/>
                                 <include reference="0Zc-eT-q5C"/>
                                 <include reference="wso-MF-HDD"/>
+                                <include reference="j25-gX-HOl"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
@@ -453,12 +452,12 @@
                                 <include reference="N8h-6b-juo"/>
                                 <include reference="cKc-zq-dtW"/>
                                 <include reference="qfp-D6-9ec"/>
-                                <include reference="giq-yT-BX2"/>
+                                <exclude reference="FSi-Fr-bSE"/>
                                 <include reference="ljf-Rs-lAd"/>
                                 <include reference="yha-Xb-ydD"/>
                                 <include reference="Avd-sK-bxT"/>
                                 <include reference="X7P-cU-X9M"/>
-                                <exclude reference="FSi-Fr-bSE"/>
+                                <include reference="giq-yT-BX2"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -470,12 +469,12 @@
                                 <include reference="pHe-He-G5n"/>
                                 <include reference="ABA-PU-H8R"/>
                                 <include reference="TRh-Ig-hlw"/>
-                                <exclude reference="plt-rD-7Pa"/>
+                                <include reference="Z60-Qi-hE6"/>
+                                <include reference="kax-Jm-VrA"/>
                                 <include reference="vAW-0M-SQY"/>
                                 <include reference="b4A-16-erW"/>
                                 <exclude reference="lSp-9t-Q9f"/>
-                                <include reference="Z60-Qi-hE6"/>
-                                <include reference="kax-Jm-VrA"/>
+                                <exclude reference="plt-rD-7Pa"/>
                             </mask>
                         </variation>
                     </view>
@@ -504,7 +503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2692.8035982008996" y="-808.79999999999995"/>
+            <point key="canvasLocation" x="-2694.202898550725" y="-809.51086956521749"/>
         </scene>
     </scenes>
 </document>

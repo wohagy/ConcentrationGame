@@ -19,21 +19,11 @@ struct Concentration {
     private var bonusForMiss = -1
     
     private var clickDate: Date?
+    private var firstClickDate: Date?
     
     private var indexOfOneAndOnlyFaceUpCard: Int? {
         get {
             return cards.indices.filter{cards[$0].isFaceUp}.oneAndOnly
-//            var foundIndex: Int?
-//            for index in cards.indices {
-//                if cards[index].isFaceUp {
-//                    if foundIndex == nil {
-//                        foundIndex = index
-//                    } else {
-//                        return nil
-//                    }
-//                }
-//            }
-//            return foundIndex
         }
         set {
             for index in cards.indices {
@@ -42,8 +32,16 @@ struct Concentration {
         }
     }
     
+    func gameTimer() -> Int {
+        guard let time = firstClickDate?.sinceNow else {return 0}
+        return time
+    }
+    
     mutating func chooseCard(at index: Int) {
         if !cards[index].isMatched {
+            if flipsCount == 0 {
+                firstClickDate = Date()
+            }
             flipsCount += 1
             if let matchIndex = indexOfOneAndOnlyFaceUpCard, matchIndex != index {
                 if cards[matchIndex].identifier == cards[index].identifier {
@@ -62,10 +60,6 @@ struct Concentration {
             }
             cards[index].isKnown = true
             clickDate = Date()
-  
-           
-     
-            
         }
     }
     
