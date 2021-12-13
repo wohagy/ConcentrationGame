@@ -87,6 +87,7 @@ struct Concentration {
         cards[index].isKnown = false
         flipsCount = 0
         score = 0
+        cycleCount = 0
     }
     
     

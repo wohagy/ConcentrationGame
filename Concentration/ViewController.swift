@@ -5,10 +5,10 @@
 //  Created by CS193p Instructor  on 09/25/17.
 //  Copyright © 2017 Stanford University. All rights reserved.
 //
-import UIKit 
+import UIKit
+import CoreData
 
 class ViewController: UIViewController {
-    
     private lazy var game = Concentration(numberOfPairs: numberOfPairs)
     
     var numberOfPairs: Int {
@@ -31,6 +31,24 @@ class ViewController: UIViewController {
         indexTheme = concentrationsThemes.count.arc4random
         updateModelFromView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        showRulesAlert()
+    }
+    
+    private func showRulesAlert() {
+        let rules = """
+        1. Необходимо найти все пары карт.
+        2. Чем быстрее, тем больше баллов.
+        3. Лучшее время игры сохраняется.
+        Удачи!
+        """
+        let alert = UIAlertController(title: "Hello", message: rules, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okButton)
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBOutlet private var cardButtons: [UIButton]!
     
     @IBOutlet private weak var flipCountLabel: UILabel!
@@ -56,14 +74,13 @@ class ViewController: UIViewController {
             emoji[index] = nil
         }
         timer.invalidate()
+        flipCountLabel.text = "0 sec"
         indexTheme = concentrationsThemes.count.arc4random
         updateModelFromView()
-        
     }
     
     var timer = Timer()
     var bestTimeResult: Int?
-    
     private func timerUpdate() {
         if game.flipsCount == 1 {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {timer in
@@ -73,19 +90,35 @@ class ViewController: UIViewController {
             timer.invalidate()
             if let time = bestTimeResult {
                 if time > game.gameTimer() {
-                    bestTimeResult = time
+                    bestTimeResult = game.gameTimer()
                 }
             } else {
                 bestTimeResult = game.gameTimer()
             }
+//            saveResult(result: bestTimeResult)
         }
     }
+    
+//    func saveResult(result: Int) {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//
+//        let entity = NSEntityDescription.entity(forEntityName: "Time", in: context)
+//        let timeObject = NSManagedObject(entity: entity!, insertInto: context)
+//        timeObject
+//
+//        do{
+//            try context.save()
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+//
+//    }
     
     private func updateFlipCountLabel(with count: Int) -> NSAttributedString  {
         let atributes : [NSAttributedString.Key:Any] = [
             .strokeColor : #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
             .strokeWidth : 5.0
-            
         ]
         return NSAttributedString(string: "Flips: \(count)", attributes: atributes)
     }
@@ -99,15 +132,12 @@ class ViewController: UIViewController {
                 button.setTitle(emoji(for: card), for: UIControl.State.normal)
                  button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             } else {
-                button.setTitle(emoji(for: card), for: UIControl.State.normal)
+                button.setTitle("", for: UIControl.State.normal)
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) : concentrationsThemes[indexTheme].cardColor
             }
         }
-//        flipCountLabel.attributedText = updateFlipCountLabel(with: game.flipsCount)
-        flipCountLabel.text = "0 sec"
+//      flipCountLabel.attributedText = updateFlipCountLabel(with: game.flipsCount)
         ScoreCountLabel.text = "Score: \(game.score)"
-        
-        
     }
     
     private var indexTheme = 0 {
@@ -152,7 +182,11 @@ class ViewController: UIViewController {
         Theme(name: "Fruits",
               emojis: "🌹🌺🌸🌻🌼💐🥀🌷",
               viewColor: #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1),
-              cardColor: #colorLiteral(red: 0.9469744563, green: 0.9561795592, blue: 0.2197425961, alpha: 1))
+              cardColor: #colorLiteral(red: 0.9469744563, green: 0.9561795592, blue: 0.2197425961, alpha: 1)),
+        Theme(name: "Sportsmans",
+              emojis: "⛹🏻🏄🏻‍♀️🏇🏻🚴🏼🤽🏽‍♀️🏊🏼‍♂️🚣🏽🤾🏼🤺🏋🏼‍♀️",
+              viewColor: #colorLiteral(red: 1, green: 0.4656630158, blue: 0.3911343813, alpha: 1),
+              cardColor: #colorLiteral(red: 0.9499558806, green: 1, blue: 0.941059649, alpha: 1))
     ]
 }
 

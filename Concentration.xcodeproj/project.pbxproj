@@ -14,6 +14,7 @@
 		E426BE621FB9BAC900773E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E426BE601FB9BAC900773E4A /* LaunchScreen.storyboard */; };
 		FA04137927302E5B00CC4E03 /* Concentration .swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04137827302E5B00CC4E03 /* Concentration .swift */; };
 		FA04137C27302EC500CC4E03 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04137B27302EC500CC4E03 /* Card.swift */; };
+		FA79A7E127665E8200D4856F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA79A7DF27665E8200D4856F /* CoreDataModel.xcdatamodeld */; };
 		FACCE3FD274953E800EDC0E3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FACCE3FC274953E800EDC0E3 /* .gitignore */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		E426BE631FB9BAC900773E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA04137827302E5B00CC4E03 /* Concentration .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Concentration .swift"; sourceTree = "<group>"; };
 		FA04137B27302EC500CC4E03 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		FA79A7E027665E8200D4856F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		FACCE3FC274953E800EDC0E3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,7 @@
 				E426BE691FBAAE5900773E4A /* Supporting Files */,
 				E426BE591FB9BAC900773E4A /* ViewController.swift */,
 				FA04137827302E5B00CC4E03 /* Concentration .swift */,
+				FA79A7DF27665E8200D4856F /* CoreDataModel.xcdatamodeld */,
 				FA04137B27302EC500CC4E03 /* Card.swift */,
 				E426BE5B1FB9BAC900773E4A /* Main.storyboard */,
 				E426BE631FB9BAC900773E4A /* Info.plist */,
@@ -159,6 +162,7 @@
 				E426BE581FB9BAC900773E4A /* AppDelegate.swift in Sources */,
 				FA04137927302E5B00CC4E03 /* Concentration .swift in Sources */,
 				FA04137C27302EC500CC4E03 /* Card.swift in Sources */,
+				FA79A7E127665E8200D4856F /* CoreDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FA79A7DF27665E8200D4856F /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FA79A7E027665E8200D4856F /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = FA79A7E027665E8200D4856F /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E426BE4C1FB9BAC900773E4A /* Project object */;
 }
